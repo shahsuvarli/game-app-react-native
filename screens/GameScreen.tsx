@@ -1,6 +1,13 @@
 import Title from "@/components/ui/Title";
 import React, { useEffect, useState } from "react";
-import { Alert, FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Dimensions,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import NumberContainer from "@/components/game/NumberContainer";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import InstructionText from "@/components/ui/InstructionText";
@@ -101,6 +108,18 @@ const GameScreen: React.FC<any> = ({ userNumber, onGameOver }: any) => {
 };
 
 export default GameScreen;
+
+const screenHeight = Dimensions.get("screen").height;
+const windowHeight = Dimensions.get("window").height;
+
+const windowWidth = Dimensions.get("window").width;
+const screenWidth = Dimensions.get("screen").width;
+
+console.log("screenHeight", screenHeight);
+console.log("windowHeight", windowHeight);
+
+console.log("windowWidth", windowWidth);
+console.log("screenWidth", screenWidth);
 
 const styles = StyleSheet.create({
   screen: {
