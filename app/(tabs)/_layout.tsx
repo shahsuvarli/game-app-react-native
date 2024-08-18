@@ -6,14 +6,13 @@ import GameScreen from "@/screens/GameScreen";
 import Colors from "@/constants/colors";
 import GameOverScreen from "@/screens/GameOverScreen";
 import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
 
 export default function TabLayout() {
   const [userNumber, setUserNumber] = useState<number | null>(null);
   const [gameIsOver, setGameIsOver] = useState<boolean>(true);
   const [guessRounds, setGuessRounds] = useState<number>(0);
 
-  const [fontsLoaded] = useFonts({
+  useFonts({
     "open-sans": require("../../assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("../../assets/fonts/OpenSans-Bold.ttf"),
   });
@@ -23,8 +22,9 @@ export default function TabLayout() {
     setGameIsOver(false);
   }
 
-  function gameOverHandler() {
+  function gameOverHandler(numOfRounds: number) {
     setGameIsOver(true);
+    setGuessRounds(numOfRounds);
   }
 
   const startNewGameHandler = () => {
